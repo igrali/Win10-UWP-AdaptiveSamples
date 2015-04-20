@@ -27,41 +27,41 @@ namespace SplitView
             this.InitializeComponent();
         }
 
-private void BackRadioButton_Click(object sender, RoutedEventArgs e)
-{
-    var frame = this.DataContext as Frame;
-    if (frame?.CanGoBack == true)
-    {
-        frame.GoBack();
-    }
-}
+        private void BackRadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            var frame = this.DataContext as Frame;
+            if (frame?.CanGoBack == true)
+            {
+                frame.GoBack();
+            }
+        }
 
-private void HamburgerRadioButton_Click(object sender, RoutedEventArgs e)
-{
-    if (!this.SplitView.IsPaneOpen)
-    {
-        this.SplitView.IsPaneOpen = true;
-    }
-}
+        private void HamburgerRadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!this.SplitView.IsPaneOpen)
+            {
+                this.SplitView.IsPaneOpen = true;
+            }
+        }
 
-private void HomeRadioButton_Click(object sender, RoutedEventArgs e)
-{
-    var frame = this.DataContext as Frame;
-    Page page = frame?.Content as Page;
-    if (page?.GetType() != typeof(HomePage))
-    {
-        frame.Navigate(typeof(HomePage));
-    }
-}
+        private void HomeRadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            var frame = this.DataContext as Frame;
+            Page page = frame?.Content as Page;
+            if (page?.GetType() != typeof(HomePage))
+            {
+                frame.Navigate(typeof(HomePage));
+            }
+        }
 
-private void FriendsRadioButton_Click(object sender, RoutedEventArgs e)
-{
-    var frame = this.DataContext as Frame;
-    Page page = frame?.Content as Page;
-    if (page?.GetType() != typeof(FriendsPage))
-    {
-        frame.Navigate(typeof(FriendsPage));
-    }
-}
+        private void FriendsRadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            var frame = this.DataContext as Frame;
+            Page page = frame?.Content as Page;
+            if (page?.GetType() != typeof(FriendsPage))
+            {
+                frame.Navigate(typeof(FriendsPage));
+            }
+        }
     }
 }

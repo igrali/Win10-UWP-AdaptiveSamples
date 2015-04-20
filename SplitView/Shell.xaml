@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    
     <SplitView x:Name="SplitView" Background="Black" OpenPaneLength="240" CompactPaneLength="48"
         DisplayMode="CompactOverlay" IsPaneOpen="False" PaneBackground="DarkSeaGreen" Content="{Binding}">
         <VisualStateManager.VisualStateGroups>
@@ -24,7 +24,11 @@
         <SplitView.Pane>
             <StackPanel x:Name="SplitViewPanePanel">
                 <RadioButton x:Name="BackRadioButton" Click="BackRadioButton_Click" Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE112;" Background="Green" Content="Back" GroupName="Back"/>
-                <RadioButton x:Name="HamburgerRadioButton" Click="HamburgerRadioButton_Click" Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE700;" Content="Menu" GroupName="Hamburger"/>
+                <RadioButton x:Name="HamburgerRadioButton" 
+                             Click="HamburgerRadioButton_Click" 
+                             Style="{StaticResource NavRadioButtonStyle}" 
+                             Tag="&#xE700;"
+                             Content="Menu" />
 
                 <RadioButton x:Name="HomeRadioButton" Click="HomeRadioButton_Click" Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE80F;" Content="Home" GroupName="Navigation"/>
                 <RadioButton x:Name="FriendsRadioButton" Click="FriendsRadioButton_Click" Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE125;" Content="Friends" GroupName="Navigation"/>
