@@ -1,0 +1,232 @@
+﻿<Page
+    x:Class="WinDaysXV.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinDaysXV"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TitleGrid.(RelativePanel.Below)" Value="Header" />
+                        <Setter Target="TitleBackground.Visibility" Value="Collapsed" />
+                        <Setter Target="SessionPanel.(RelativePanel.Below)" Value="TitleGrid" />
+                        <Setter Target="SpeakerPanel.(RelativePanel.Below)" Value="SessionPanel" />
+                        <Setter Target="SameTimePanel.(RelativePanel.Below)" Value="SpeakerPanel" />
+                        <Setter Target="SameTrackPanel.(RelativePanel.Below)" Value="SameTimePanel" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="960" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitView.DisplayMode" Value="Inline" />
+                        <Setter Target="SplitView.IsPaneOpen" Value="True" />
+                        <Setter Target="TitleGrid.(RelativePanel.AlignVerticalCenterWith)" Value="Header" />
+                        <Setter Target="TitleGrid.MaxWidth" Value="380" />
+                        <Setter Target="Title.Margin" Value="20" />
+                        <Setter Target="Title.FontSize" Value="24" />
+                        <Setter Target="TitleBackground.Visibility" Value="Visible" />
+                        <Setter Target="SessionPanel.(RelativePanel.Below)" Value="Header" />
+                        <Setter Target="SpeakerPanel.(RelativePanel.Below)" Value="SessionPanel" />
+                        <Setter Target="SpeakerPanel.MaxWidth" Value="420" />
+                        <Setter Target="SameTimePanel.(RelativePanel.Below)" Value="SessionPanel" />
+                        <Setter Target="SameTimePanel.MaxWidth" Value="420" />
+                        <Setter Target="SameTimePanel.(RelativePanel.RightOf)" Value="SpeakerPanel" />
+                        <Setter Target="SameTrackPanel.(RelativePanel.Below)" Value="SpeakerPanel" />
+                        <Setter Target="SameTrackPanel.MaxWidth" Value="420" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1600" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitView.DisplayMode" Value="Inline" />
+                        <Setter Target="SplitView.IsPaneOpen" Value="True" />
+                        <Setter Target="TitleGrid.(RelativePanel.AlignVerticalCenterWith)" Value="Header" />
+                        <Setter Target="TitleGrid.MaxWidth" Value="550" />
+                        <Setter Target="Title.Margin" Value="20" />
+                        <Setter Target="Title.FontSize" Value="36" />
+                        <Setter Target="TitleBackground.Visibility" Value="Visible" />
+                        <Setter Target="SessionPanel.(RelativePanel.Below)" Value="Header" />
+                        <Setter Target="SpeakerPanel.(RelativePanel.Below)" Value="SessionPanel" />
+                        <Setter Target="SpeakerPanel.MaxWidth" Value="420" />
+                        <Setter Target="SameTimePanel.(RelativePanel.Below)" Value="SessionPanel" />
+                        <Setter Target="SameTimePanel.MaxWidth" Value="420" />
+                        <Setter Target="SameTimePanel.(RelativePanel.RightOf)" Value="SpeakerPanel" />
+                        <Setter Target="SameTrackPanel.(RelativePanel.Below)" Value="SessionPanel" />
+                        <Setter Target="SameTrackPanel.(RelativePanel.RightOf)" Value="SameTimePanel" />
+                        <Setter Target="SameTrackPanel.MaxWidth" Value="420" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <SplitView x:Name="SplitView" Background="#0b203d" OpenPaneLength="240" CompactPaneLength="36"
+               DisplayMode="CompactOverlay" IsPaneOpen="False" PaneBackground="White">
+            <SplitView.Pane>
+                <StackPanel x:Name="SplitViewPanePanel">
+                    <RadioButton x:Name="BackRadioButton" Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE112;" Background="#0b203d" Foreground="White" GroupName="Back"/>
+                    <RadioButton x:Name="HamburgerRadioButton" Click="HamburgerRadioButton_Click" Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE700;" GroupName="Hamburger" Foreground="#0b203d"/>
+
+                    <RadioButton Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE80F;" Content="Početna" GroupName="Navigation" Foreground="#0b203d"/>
+                    <RadioButton Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE13D;" Content="Raspored" GroupName="Navigation" Foreground="#0b203d"/>
+                    <RadioButton Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE760;" Content="WinCoin" GroupName="Navigation" Foreground="#0b203d"/>
+                    <RadioButton Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE1C4;" Content="Mape" GroupName="Navigation" Foreground="#0b203d"/>
+                    <RadioButton Style="{StaticResource NavRadioButtonStyle}" Tag="&#xE706;" Content="Vrijeme" GroupName="Navigation" Foreground="#0b203d"/>
+                </StackPanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <ScrollViewer>
+                    <RelativePanel Background="#0b203d">
+                        <Image x:Name="Header" Source="/Assets/header.jpg" />
+                        <Grid x:Name="TitleGrid" Margin="20,10" RelativePanel.Below="Header">
+                            <Rectangle x:Name="TitleBackground" Fill="White" Opacity="0.15" Visibility="Collapsed"/>
+                            <TextBlock x:Name="Title" Text="Windows 10: Univerzalno sučelje za univerzalne aplikacije" Foreground="White"
+                                       FontSize="24" TextWrapping="Wrap" FontWeight="Light"/>
+                        </Grid>
+                        <RelativePanel x:Name="SessionPanel" Margin="20,10" RelativePanel.Below="TitleGrid">
+                            <Grid x:Name="Track" Background="Red" RelativePanel.AlignLeftWithPanel="True" Width="48" Height="30">
+                                <TextBlock Text="DEV" Foreground="White" Margin="6" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                            </Grid>
+                            <Grid x:Name="Level" Background="SkyBlue" RelativePanel.RightOf="Track" Margin="10,0,0,0" Width="48" Height="30">
+                                <TextBlock Text="200" Foreground="White" Margin="6" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                            </Grid>
+                            <Grid x:Name="Room" Background="SkyBlue" RelativePanel.RightOf="Level" Margin="10,0,0,0" Width="48" Height="30">
+                                <TextBlock Text="3" Foreground="White" Margin="6" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                            </Grid>
+                            <Grid x:Name="Fav" Background="Orange" RelativePanel.RightOf="Room" Margin="10,0,0,0" Width="48" Height="30">
+                                <TextBlock Text="&#xE082;" FontFamily="Segoe MDL2 Assets" Foreground="White" Margin="6" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                            </Grid>
+                            <TextBlock x:Name="Time" Margin="0,10,0,0" Text="Četvrtak, 15:30-16:15" Foreground="White" FontWeight="SemiBold"
+                       RelativePanel.Below="Track" RelativePanel.AlignLeftWithPanel="True"/>
+                            <TextBlock x:Name="Description" Margin="0,10,0,0" Text="Razvoj aplikacija s univerzalnim sučeljem koje izgledaju i rade dobro na različitim veličinama i rezolucijama ekrana može biti zahtjevan posao ukoliko platforma za koju se razvija to ne podržava. Upravo zato u razvoju Windows 10 univerzalnih aplikacija dobivamo nove panele, kontrole i mogućnosti koje olakšavaju implementaciju adaptivnog sučelja. Kroz demoe i primjere koda pokazat ćemo novi RelativePanel, SplitView i druge kontrole, te ostale novosti u XAML-u koje trebate znati da bi vaša aplikacija od prvog dana radila i izgledala odlično na svim Windows 10 uređajima." 
+                       Foreground="White" TextWrapping="Wrap"
+                       RelativePanel.Below="Time" />
+                        </RelativePanel>
+                        <RelativePanel x:Name="SpeakerPanel" Margin="20,10" RelativePanel.Below="SessionPanel">
+                            <Image x:Name="Avatar" Source="Assets/Igor.png" Width="96" Height="96"/>
+                            <StackPanel RelativePanel.RightOf="Avatar" RelativePanel.AlignVerticalCenterWith="Avatar" Margin="10,0,0,0">
+                                <TextBlock Text="Igor Ralić" Foreground="White" FontSize="24" FontWeight="Light"/>
+                                <TextBlock Text="dizzy.hr" Foreground="White" />
+                            </StackPanel>
+                            <TextBlock x:Name="Bio" Margin="0,10,0,0" Text="Igor Ralić radi kao software developer u dizzy.hr na razvoju Windows (Phone) Store aplikacija. Razvojem za navedene platforme počeo se baviti još dok su bile u povojima, a tu je strast pretvorio i u svakodnevni posao. U slobodno vrijeme nastavlja u istom tonu - na igrali.com piše blog o zabavnim developerskim iskustvima, predaje na konferencijama (WinDays, ATD, KulenDayz, Sinergija i druge) i community grupama, a ponekad i odgovori na neko dobro Stack Overflow pitanje. U posljednje vrijeme nešto fino i skuha (na radost ukućana), voli popiti dobar espresso te vidjeti i napraviti dobru fotografiju." 
+                           Foreground="White" TextWrapping="Wrap"
+                           RelativePanel.Below="Avatar"/>
+                        </RelativePanel>
+                        <StackPanel x:Name="SameTimePanel" Margin="20,0,20,20" RelativePanel.Below="SpeakerPanel">
+                            <TextBlock Text="U isto vrijeme" Foreground="White" FontSize="24" FontWeight="Light"/>
+                            <RelativePanel>
+                                <TextBlock x:Name="Title1" Text="Igrom do poslovnog uspjeha - Gemifikacija u Microsoftovom svijetu" Foreground="White" TextWrapping="Wrap"/>
+                                <Grid x:Name="Track1" Background="Red" RelativePanel.Below="Title1" RelativePanel.AlignLeftWithPanel="True" Margin="0,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="DEV" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Level1" Background="SkyBlue" RelativePanel.Below="Title1" RelativePanel.RightOf="Track1" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="200" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Room1" Background="SkyBlue" RelativePanel.Below="Title1" RelativePanel.RightOf="Level1" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="3" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Fav1" Background="Orange" RelativePanel.Below="Title1" RelativePanel.RightOf="Room1" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="&#xE082;" FontFamily="Segoe MDL2 Assets" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <TextBlock Text="Stjepan Vuković, Velimir Žagar" Foreground="Gray" FontSize="14"
+                               RelativePanel.Below="Track1"/>
+                            </RelativePanel>
+                            <RelativePanel Margin="0,10,0,0">
+                                <TextBlock x:Name="Title2" Text="Igrom do poslovnog uspjeha - Gemifikacija u Microsoftovom svijetu" Foreground="White" TextWrapping="Wrap"/>
+                                <Grid x:Name="Track2" Background="Red" RelativePanel.Below="Title2" RelativePanel.AlignLeftWithPanel="True" Margin="0,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="DEV" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Level2" Background="SkyBlue" RelativePanel.Below="Title2" RelativePanel.RightOf="Track2" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="200" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Room2" Background="SkyBlue" RelativePanel.Below="Title2" RelativePanel.RightOf="Level2" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="3" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <TextBlock Text="Stjepan Vuković, Velimir Žagar" Foreground="Gray" FontSize="14"
+                               RelativePanel.Below="Track2"/>
+                            </RelativePanel>
+                            <RelativePanel Margin="0,10,0,0">
+                                <TextBlock x:Name="Title3" Text="Igrom do poslovnog uspjeha - Gemifikacija u Microsoftovom svijetu" Foreground="White" TextWrapping="Wrap"/>
+                                <Grid x:Name="Track3" Background="Red" RelativePanel.Below="Title3" RelativePanel.AlignLeftWithPanel="True" Margin="0,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="DEV" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Level3" Background="SkyBlue" RelativePanel.Below="Title3" RelativePanel.RightOf="Track3" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="200" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Room3" Background="SkyBlue" RelativePanel.Below="Title3" RelativePanel.RightOf="Level3" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="3" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Fav3" Background="Orange" RelativePanel.Below="Title3" RelativePanel.RightOf="Room3" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="&#xE082;" FontFamily="Segoe MDL2 Assets" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <TextBlock Text="Stjepan Vuković, Velimir Žagar" Foreground="Gray" FontSize="14"
+                               RelativePanel.Below="Track3"/>
+                            </RelativePanel>
+                        </StackPanel>
+                        <StackPanel x:Name="SameTrackPanel" Margin="20,0,20,20" RelativePanel.Below="SameTimePanel">
+                            <TextBlock Text="U istom smjeru" Foreground="White" FontSize="24" FontWeight="Light"/>
+                            <RelativePanel>
+                                <TextBlock x:Name="Title11" Text="Igrom do poslovnog uspjeha - Gemifikacija u Microsoftovom svijetu" Foreground="White" TextWrapping="Wrap"/>
+                                <Grid x:Name="Track11" Background="Red" RelativePanel.Below="Title11" RelativePanel.AlignLeftWithPanel="True" Margin="0,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="DEV" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Level11" Background="SkyBlue" RelativePanel.Below="Title11" RelativePanel.RightOf="Track11" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="200" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Room11" Background="SkyBlue" RelativePanel.Below="Title11" RelativePanel.RightOf="Level11" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="3" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Fav11" Background="Orange" RelativePanel.Below="Title11" RelativePanel.RightOf="Room11" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="&#xE082;" FontFamily="Segoe MDL2 Assets" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <TextBlock Text="Stjepan Vuković, Velimir Žagar" Foreground="Gray" FontSize="14"
+                               RelativePanel.Below="Track11"/>
+                            </RelativePanel>
+                            <RelativePanel Margin="0,10,0,0">
+                                <TextBlock x:Name="Title12" Text="Igrom do poslovnog uspjeha - Gemifikacija u Microsoftovom svijetu" Foreground="White" TextWrapping="Wrap"/>
+                                <Grid x:Name="Track12" Background="Red" RelativePanel.Below="Title12" RelativePanel.AlignLeftWithPanel="True" Margin="0,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="DEV" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Level12" Background="SkyBlue" RelativePanel.Below="Title12" RelativePanel.RightOf="Track12" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="200" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Room12" Background="SkyBlue" RelativePanel.Below="Title12" RelativePanel.RightOf="Level12" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="3" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <TextBlock Text="Stjepan Vuković, Velimir Žagar" Foreground="Gray" FontSize="14"
+                               RelativePanel.Below="Track12"/>
+                            </RelativePanel>
+                            <RelativePanel Margin="0,10,0,0">
+                                <TextBlock x:Name="Title13" Text="Igrom do poslovnog uspjeha - Gemifikacija u Microsoftovom svijetu" Foreground="White" TextWrapping="Wrap"/>
+                                <Grid x:Name="Track13" Background="Red" RelativePanel.Below="Title13" RelativePanel.AlignLeftWithPanel="True" Margin="0,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="DEV" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Level13" Background="SkyBlue" RelativePanel.Below="Title13" RelativePanel.RightOf="Track13" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="200" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Room13" Background="SkyBlue" RelativePanel.Below="Title13" RelativePanel.RightOf="Level13" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="3" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <Grid x:Name="Fav13" Background="Orange" RelativePanel.Below="Title13" RelativePanel.RightOf="Room13" Margin="10,4,0,0" Width="36" Height="20">
+                                    <TextBlock Text="&#xE082;" FontFamily="Segoe MDL2 Assets" Foreground="White" Margin="2" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="12"/>
+                                </Grid>
+                                <TextBlock Text="Stjepan Vuković, Velimir Žagar" Foreground="Gray" FontSize="14"
+                               RelativePanel.Below="Track13"/>
+                            </RelativePanel>
+                        </StackPanel>
+                    </RelativePanel>
+                </ScrollViewer>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>
