@@ -10,5 +10,6 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
                    Text="This is mobile view" FontSize="36" TextWrapping="Wrap"/>
+        <local:CustomUserControl VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

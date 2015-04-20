@@ -10,5 +10,6 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
                    Text="This is desktop view" FontSize="72"/>
+        <local:CustomUserControl VerticalAlignment="Bottom"/>
     </Grid>
 </Page>
