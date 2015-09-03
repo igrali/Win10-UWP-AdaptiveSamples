@@ -1,5 +1,6 @@
-# Win10-UAP-WinDays15
-Windows 10 Universal Windows Platform demos for Microsoft WinDays 15 conference
+# Win10-UWP-AdaptiveSamples
+Windows 10 Universal Windows Platform demos of new XAML adaptive capabilities and controls.
+I use these to show the new features when presenting the topic at conferences.
 
 >All demos are updated to work with Windows 10 10240 APIs.
 
