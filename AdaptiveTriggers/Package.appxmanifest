@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="6dbc9b27-0c35-4971-bb37-67d390511b22"
+    Name="8001031e-c6c5-4df4-9942-a8a9afd886e1"
     Publisher="CN=igrali"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="6dbc9b27-0c35-4971-bb37-67d390511b22" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="8001031e-c6c5-4df4-9942-a8a9afd886e1" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>AdaptiveTriggers</DisplayName>
@@ -20,7 +20,7 @@
   </Properties>
 
   <Dependencies>
-    <TargetPlatform Name="Windows.Universal" MinVersion="10.0.10030.0" MaxVersionTested="10.0.10030.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
 
   <Resources>
@@ -33,11 +33,11 @@
       EntryPoint="AdaptiveTriggers.App">
       <uap:VisualElements
         DisplayName="AdaptiveTriggers"
-        Square150x150Logo="Assets\Logo.png"
-        Square44x44Logo="Assets\SmallLogo.png"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
         Description="AdaptiveTriggers"
-        ForegroundText="light"
-        BackgroundColor="#464646">
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>

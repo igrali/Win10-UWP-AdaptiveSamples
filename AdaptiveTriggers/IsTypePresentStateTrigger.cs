@@ -43,7 +43,7 @@ namespace AdaptiveTriggers
             var obj = (IsTypePresentStateTrigger)d;
             var val = (string)e.NewValue;
             bool isTypePresent = ApiInformation.IsTypePresent(val);
-            obj.SetTriggerValue(!string.IsNullOrWhiteSpace(val) && isTypePresent);
+            obj.SetActive(!string.IsNullOrWhiteSpace(val) && isTypePresent);
         }
     }
 }

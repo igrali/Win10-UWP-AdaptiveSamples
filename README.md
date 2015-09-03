@@ -1,7 +1,7 @@
 # Win10-UAP-WinDays15
-Windows 10 Universal App Platform demos for Microsoft WinDays 15 conference
+Windows 10 Universal Windows Platform demos for Microsoft WinDays 15 conference
 
->All demos written on Windows 10 Technical Preview build 10041 with preview tools. Things can change by the time Windows 10 gets released.
+>All demos are updated to work with Windows 10 10240 APIs.
 
 The soluton consists of 5 projects:
 

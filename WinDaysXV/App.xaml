@@ -2,8 +2,8 @@
     x:Class="WinDaysXV.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:WinDaysXV">
-    
+    xmlns:local="using:WinDaysXV"
+    RequestedTheme="Light">
     <Application.Resources>
         <SolidColorBrush x:Key="NavButtonPressedBackgroundBrush" Color="White" Opacity="0.3" />
         <SolidColorBrush x:Key="NavButtonCheckedBackgroundBrush" Color="White" Opacity="0.2" />
